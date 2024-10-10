@@ -1,5 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 static int	ft_charcmp(char c1, char c2)
 {
@@ -22,12 +21,4 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	if(i < n)
 		return (ft_charcmp(s1[i], s2[i]));
 	return (0);
-}
-
-int main()
-{
-	char str[] = "heyyo";
-	char str2[] = "hello";
-
-	printf("%d", ft_strncmp(str, str2, 2));
 }

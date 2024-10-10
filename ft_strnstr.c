@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "libft.h"
 
 char	*strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -20,14 +20,4 @@ char	*strnstr(const char *haystack, const char *needle, size_t len)
 		i++;
 	}
 	return (NULL);
-}
-
-#include <stdio.h>
-
-int main()
-{
-	char st[] = "hello world";
-	char st2[] = "wor";
-
-	printf("%s", strnstr(st, st2, 12));
 }

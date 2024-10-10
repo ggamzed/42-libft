@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
@@ -10,16 +10,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while(i < n)
 	{
 		if(*(unsigned char*)(s + i) == (unsigned char)c)
-			return ((s + i));
+			return ((void *)(s + i));
 		i++;
 	}
 	return (NULL);
-}
-
-
-int main(void)
-{
-	char st[] = "hello world";
-	char c = 'w';
-	printf("%s", ft_memchr(st, c, 10));
 }

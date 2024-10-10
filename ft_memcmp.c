@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "libft.h"
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -12,12 +12,4 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 		i++;
 	}
 	return (0);
-}
-
-#include <stdio.h>
-int main()
-{
-	char st[] = "hello";
-	char st2[] = "hello";
-	printf("%d", ft_memcmp(st, st2, 5));
 }
