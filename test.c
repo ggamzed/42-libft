@@ -219,6 +219,66 @@ void    test_atoi()
     printf("%d\n", ft_atoi(str));
 }
 
+void    test_calloc()
+{
+    size_t  elem_count;
+    size_t  elem_size;
+    int     *arr;
+    int     is_all_zero;
+    size_t  i;
+
+    elem_count = 5;
+    elem_size = sizeof(int);
+    arr = (int *)ft_calloc(elem_count, elem_size);
+    
+    if(!arr)
+    {
+        printf("bellek tahsis edilemedi\n");
+        return;
+    }
+    is_all_zero = 1;
+    i = 0;
+    while(i < elem_count)
+    {
+        if(arr[i] != 0)
+        {
+            is_all_zero = 0;
+            break;
+        }
+        i++;
+    }
+    if(is_all_zero)
+        printf("başarılı, bellek sıfırlandı\n");
+    else
+        printf("başarısız, bellek sıfırlanmadı\n");
+    
+    free(arr);
+}
+
+void    test_strdup()
+{
+    const char *original = "Merhaba, dünya!";
+    char *copy = ft_strdup(original);
+    
+    // Test sonucu
+    if (copy == NULL) {
+        printf("Bellek tahsisi başarısız oldu!\n");
+    } else {
+        printf("Orijinal: %s\n", original);
+        printf("Kopya: %s\n", copy);
+        
+        // Kontrol: Kopya orijinal ile aynı mı?
+        if (strcmp(original, copy) == 0) {
+            printf("Test başarılı: Kopya, orijinal string ile aynı.\n");
+        } else {
+            printf("Test başarısız: Kopya, orijinal string ile farklı.\n");
+        }
+        
+        // Belleği serbest bırak
+        free(copy);
+    }
+}
+
 int main(void)
 {
     printf("Testing ft_isalpha:\n");
@@ -283,4 +343,10 @@ int main(void)
 
     printf("\nTesting ft_atoi:\n");
     test_atoi();
+
+    printf("\nTesting ft_calloc:\n");
+    test_calloc();
+
+    printf("\nTesting ft_strdup:\n");
+    test_strdup();
 }
