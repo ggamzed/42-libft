@@ -2,25 +2,25 @@
 
 void    *ft_memmove(void *dst, const void *src, size_t len)
 {
-    int     i;
+    size_t     i;
 
     if(!dst || !src)
         return (NULL);
-    if(dst > src)
+    i = 0;
+    if((size_t)dst > (size_t)src)
     {
-        i = (int)len - 1;
+        i = len - 1;
         while(i >= 0)
         {
-            ((char *)dst)[i] = ((char *)src)[i];
+            ((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
             i--;
         }
     }
     else
     {
-        i = 0;
-        while(i < (int)len)
+        while(i < len)
         {
-            ((char *)dst)[i] = ((char *)src)[i];
+            ((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
             i++;
         }
     }

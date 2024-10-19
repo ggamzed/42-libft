@@ -9,15 +9,15 @@ int     ft_atoi(const char *str)
     if(!str)
         return (0);
     i = 0;
-    while((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+    while(('\t' <= str[i] && str[i] <= '\r') || str[i] == ' ')
         i++;
     sign = 1;
     if(str[i] == '-')
         sign *= -1;
-    if(sign == -1 || str[i] == '+')
+    if(str[i] == '-' || str[i] == '+')
         i++;
     nb = 0;
-    while(str[i] >= '0' && str[i] <= '9')
+    while('0' <= str[i] && str[i] <= '9')
         nb = (nb * 10) + (str[i++] - '0');
     return (nb * sign);
 }
