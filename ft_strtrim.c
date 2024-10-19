@@ -2,7 +2,7 @@
 
 static int  ft_char_in_set(char c, char const *set)
 {
-    size_t  i;
+    unsigned int  i;
 
     i = 0;
     while(set[i])
@@ -21,6 +21,8 @@ char    *ft_strtrim(char const *s1, char const *set)
     size_t  end;
     size_t  i;
 
+    if(!s1 || !set)
+        return (NULL);
     start = 0;
     while(s1[start] && ft_char_in_set(s1[start], set))
         start++;
@@ -35,12 +37,4 @@ char    *ft_strtrim(char const *s1, char const *set)
         str[i++] = s1[start++];
     str[i] = 0;
     return (str);
-}
-
-#include <stdio.h>
-int main()
-{
-    char *st = "    HELLO  \n";
-    char *set = " \n";
-    printf("%s", ft_strtrim(st, set));
 }

@@ -6,6 +6,8 @@ char    *ft_substr(char const *s, unsigned int start, size_t len)
     size_t    j;
     char    *str;
 
+    if(!s)
+        return (NULL);
     str = (char *)malloc((len + 1) * sizeof(*s));
     if(!str)
         return (NULL);
@@ -22,12 +24,4 @@ char    *ft_substr(char const *s, unsigned int start, size_t len)
     }
     str[j] = 0;
     return (str);
-}
-
-#include <stdio.h>
-int main()
-{
-    char *str = "hello";
-    printf("%s\n", ft_substr(str, 1, 3));
-    free(str);
 }
