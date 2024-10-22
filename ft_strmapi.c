@@ -17,15 +17,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
-
-
-char to_upper(unsigned int index, char c) {
-    return (c >= 'a' && c <= 'z') ? c - 32 : c; // Küçük harfleri büyük harfe çevirir
-}
-
-#include <stdio.h>
-int main()
-{
-	char st[]= "hello world";
-	printf("%s", ft_strmapi(st, to_upper));
-}

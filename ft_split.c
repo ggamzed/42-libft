@@ -2,11 +2,8 @@
 
 static char  **free_memory(char **str, size_t i)
 {
-    while(i >= 0)
-    {
-        free(str[i]);
-        i--;
-    }
+    while(i > 0)
+        free(str[--i]);
     free(str);
     return (NULL);
 }
