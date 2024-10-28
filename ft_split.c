@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gdemirci <gdemirci@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 12:26:46 by gdemirci          #+#    #+#             */
-/*   Updated: 2024/10/28 12:26:46 by gdemirci         ###   ########.tr       */
+/*   Created: 2024/10/28 13:33:35 by gdemirci          #+#    #+#             */
+/*   Updated: 2024/10/28 13:33:35 by gdemirci         ###   ########.tr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,35 @@ static int	word_len(const char *str, char sep)
 	return (i);
 }
 
+static char	**alloc_strings(char **strs, char const *s, char c, size_t w_count)
+{
+	size_t	j;
+	size_t	i;
+
+	i = 0;
+	j = 0;
+	while (s[i] && j < w_count)
+	{
+		while (s[i] && (s[i] == c))
+			i++;
+		if (s[i])
+		{
+			strs[j] = ft_substr(s, i, word_len(&s[i], c));
+			if (!strs[j])
+				return (free_memory(strs, j));
+			j++;
+		}
+		while (s[i] && !(s[i] == c))
+			i++;
+	}
+	strs[j] = 0;
+	return (strs);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char			**strings;
-	unsigned int	i;
-	unsigned int	j;
-	size_t			word_count;
+	char	**strings;
+	size_t	word_count;
 
 	if (!s)
 		return (NULL);
@@ -66,22 +89,5 @@ char	**ft_split(char const *s, char c)
 	strings = (char **)malloc(sizeof(char *) * (word_count + 1));
 	if (!strings)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i] && j < word_count)
-	{
-		while (s[i] && (s[i] == c))
-			i++;
-		if (s[i])
-		{
-			strings[j] = ft_substr(s, i, word_len(&s[i], c));
-			if (!strings[j])
-				return (free_memory(strings, j));
-			j++;
-		}
-		while (s[i] && !(s[i] == c))
-			i++;
-	}
-	strings[j] = 0;
-	return (strings);
+	return (alloc_strings(strings, s, c, word_count));
 }

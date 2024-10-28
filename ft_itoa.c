@@ -47,16 +47,12 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 	}
 	if (long_n == 0)
-	{
 		str[0] = '0';
-	}
 	str[len] = '\0';
-	len--;
 	while (long_n > 0)
 	{
-		str[len] = (long_n % 10) + '0';
+		str[--len] = (long_n % 10) + '0';
 		long_n /= 10;
-		len--;
 	}
 	return (str);
 }
