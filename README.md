@@ -36,38 +36,59 @@ gcc main.c libft.a
 ## Function Categories
 
 ### String Manipulation
-```c
-ft_strlen, ft_strchr, ft_strrchr, ft_strnstr, ft_strcmp
-ft_strdup, ft_substr, ft_strjoin, ft_strtrim, ft_split
-```
+| Function | Description |
+|----------|-------------|
+| `ft_strlen` | Calculate string length |
+| `ft_strchr` | Locate character in string |
+| `ft_strrchr` | Locate character in string (from end) |
+| `ft_strnstr` | Locate substring in string |
+| `ft_strncmp` | Compare strings up to n characters |
+| `ft_strdup` | Duplicate string |
+| `ft_substr` | Extract substring |
+| `ft_strjoin` | Join two strings |
+| `ft_strtrim` | Remove specified characters from start/end |
+| `ft_split` | Split string by delimiter into array |
 
 ### Memory Management
-```c
-ft_memset, ft_bzero, ft_memcpy, ft_memmove, ft_memchr, ft_memcmp
-ft_calloc
-```
+| Function | Description |
+|----------|-------------|
+| `ft_memset` | Fill memory with constant byte |
+| `ft_bzero` | Zero out memory |
+| `ft_memcpy` | Copy memory area |
+| `ft_memmove` | Copy memory (handles overlap) |
+| `ft_memchr` | Scan memory for character |
+| `ft_memcmp` | Compare memory areas |
+| `ft_calloc` | Allocate and zero memory |
 
 ### Character Checks & Conversion
-```c
-ft_isalpha, ft_isdigit, ft_isalnum, ft_isascii, ft_isprint
-ft_toupper, ft_tolower
-```
+| Function | Description |
+|----------|-------------|
+| `ft_isalpha` | Check if alphabetic character |
+| `ft_isdigit` | Check if digit character |
+| `ft_isalnum` | Check if alphanumeric character |
+| `ft_isascii` | Check if ASCII character |
+| `ft_isprint` | Check if printable character |
+| `ft_toupper` | Convert to uppercase |
+| `ft_tolower` | Convert to lowercase |
 
 ### String to Integer
-```c
-ft_atoi    // String to integer conversion
-```
+| Function | Description |
+|----------|-------------|
+| `ft_atoi` | Convert string to integer |
 
 ### File Descriptor Output
-```c
-ft_putchar_fd, ft_putstr_fd, ft_putendl_fd, ft_putnbr_fd
-```
+| Function | Description |
+|----------|-------------|
+| `ft_putchar_fd` | Output character to file descriptor |
+| `ft_putstr_fd` | Output string to file descriptor |
+| `ft_putendl_fd` | Output string + newline to file descriptor |
+| `ft_putnbr_fd` | Output integer to file descriptor |
 
 ### Advanced String Functions
-```c
-ft_strmapi    // Apply function to each character with index
-ft_striteri   // Iterate string with function and index
-```
+| Function | Description |
+|----------|-------------|
+| `ft_strmapi` | Apply function to each character with index |
+| `ft_striteri` | Iterate string with function and index |
 
 ## Bonus: Linked List Functions
 
@@ -79,18 +100,18 @@ typedef struct s_list
 } t_list;
 ```
 
-### List Operations
-```c
-ft_lstnew       // Create new node
-ft_lstadd_front // Add node at beginning
-ft_lstadd_back  // Add node at end
-ft_lstsize      // Count list nodes
-ft_lstlast      // Get last node
-ft_lstdelone    // Delete single node
-ft_lstclear     // Delete entire list
-ft_lstiter      // Apply function to each node
-ft_lstmap       // Create new list with function applied
-```
+### Bonus: Linked List Operations
+| Function | Description |
+|----------|-------------|
+| `ft_lstnew` | Create new node |
+| `ft_lstadd_front` | Add node at beginning of list |
+| `ft_lstadd_back` | Add node at end of list |
+| `ft_lstsize` | Count number of nodes in list |
+| `ft_lstlast` | Get last node of list |
+| `ft_lstdelone` | Delete single node |
+| `ft_lstclear` | Delete entire list |
+| `ft_lstiter` | Apply function to each node |
+| `ft_lstmap` | Create new list with function applied |
 
 ### Example Linked List Usage
 ```c
